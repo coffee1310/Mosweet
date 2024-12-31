@@ -1,0 +1,315 @@
+html {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 2%;
+    width: 50%;
+}
+
+header nav ul li a {
+    font-weight: 500;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #000;
+}
+
+header nav ul li:nth-child(6) a{
+    color: #0CC1DD;
+}
+
+.main-banner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+}
+
+.main-banner img {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.main-banner p {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+/* Что такое mosweet  */
+
+.what-is-mosweet {
+    height: 100vh;
+    padding: 0 15%;
+}
+
+.what-is-mosweet h1 {
+    text-align: center;
+    font-weight: 400;
+    color: #BD9C51;
+}
+
+.what-is-mosweet img {
+    width: 40%;
+    height: 40%;
+}
+
+.what-is-mosweet .description{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+.what-is-mosweet .description .text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 40%;
+}
+
+.we-create {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.we-create .food-group {
+    display: flex;
+    justify-content: center;
+}
+
+.we-create .food-group img {
+    width: 20%;
+    object-fit: cover;
+}
+
+.we-create h1 {
+    font-size: 2em;
+    font-weight: 500;
+
+    text-align: center;
+    color: #BD9C51;
+}
+
+.we-create p {
+    font-size: 1.3em;
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+
+.what-cook {
+    display: flex;
+    justify-content: center;
+}
+
+.what-cook .line {
+    display: flex;
+    justify-content: center;
+    background-color: #E38CB9;
+    padding: 0;
+    height: 70px;
+}
+
+.what-cook .line .line-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto 0;
+
+}
+
+.what-cook .line .line-item img{
+    width: 5%;
+}
+
+.what-cook .line .line-item span {
+    margin-left: 20px;
+    color: white;
+}
+
+.menu-table {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.menu-column {
+    flex: 1;
+    max-width: 300px;
+    text-align: left;
+    margin: 0 10px;
+}
+
+.menu-column h3 {
+    text-align: center;
+    font-weight: 300;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.menu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.menu-column ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+}
+
+.menu-column ul li img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.menu-column ul li .icon {
+    font-size: 1.2em;
+    color: #f56;
+}
+
+.menu-column ul li:nth-child(1) {
+    color: #b8860b;
+}
+
+.menu-column ul li:nth-child(2) {
+    color: #b8860b;
+}
+
+.menu-column ul li:nth-child(3) {
+    color: #00b7eb;
+}
+
+.menu-column ul ul li {
+    margin-left: 20px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.menu-column:nth-child(1) h3 {
+    color: #BD9C51;
+}
+
+.menu-column:nth-child(2) h3 {
+    color: #E38CB9;
+}
+
+.menu-column:nth-child(3) h3 {
+    color: #0CC1DD;
+}
+
+.why-us {
+    position: relative;
+    height: 100vh; /* высота блока, можно менять */
+    overflow: hidden;
+}
+
+.why-us .parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url("C:/Users/user/Desktop/projects/Java/Mosweet/Mosweet/src/main/resources/static/img/places/place1.png"); /* Замените на ваше изображение */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateZ(0); /* Для улучшения производительности */
+    will-change: transform; /* Указывает браузеру, что будет происходить трансформация */
+    z-index: -1; /* Помещаем изображение позади контента */
+    pointer-events: none; /* Чтобы изображение не перекрывало другие элементы */
+    background-attachment: fixed; /* Это свойство создает эффект параллакса */
+}
+
+/* Стили для контента */
+.why-us .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 50px 20px;
+    font-size: 2em;
+}
+
+.why-us .content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.why-us .content p {
+    font-size: 1.2em;
+}
+
+.arguments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.arguments p:first-child {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.arguments .item {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 600px;
+    margin-top: 20px;
+}
+
+.arguments .item img {
+    width: 10%;
+    height: 10%;
+}
+
+.arguments .item p {
+    width: 80%;
+}
+
+.arguments .item .line {
+    position: absolute;
+    align-self: end;
+    width: 600px;
+    height: 1px;
+    background-color: gray;
+}
