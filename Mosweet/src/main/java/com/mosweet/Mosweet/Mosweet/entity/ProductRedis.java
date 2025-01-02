@@ -5,20 +5,14 @@ import lombok.Data;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
-
 @Data
-@Entity
-@Table(name = "Products")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@RedisHash("ProductRedis")
+public class ProductRedis implements Serializable{
     private long id;
     @Column(name = "title", nullable = false, length = 64)
     private String title;
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
+    private long category_id;
     private int price;
     private int article_number;
     private int Kcal;
@@ -28,8 +22,6 @@ public class Product {
     @Lob
     @Column(name = "image_data")
     private byte[] img;
-
-    public Product() {}
 
     public void setId(long id) {
         this.id = id;
