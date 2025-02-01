@@ -1,35 +1,30 @@
-package com.mosweet.Mosweet.Mosweet.entity;
+package com.mosweet.Mosweet.Mosweet.entity.Redis;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.mosweet.Mosweet.Mosweet.entity.PostgreSQL.Category;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.redis.core.RedisHash;
 
-import java.io.Serializable;
-
 @Data
-@Entity
-@Table(name = "Products")
-public class Product {
+@RedisHash("products")
+public class ProductRedis {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
     @Column(name = "title", nullable = false, length = 64)
     private String title;
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
+
     private int price;
     private int article_number;
-    private int Kcal;
+    private int kcal;
     private int weight;
     private String compound;
+    private String image_path;
 
-    @Lob
-    @Column(name = "image_data")
-    private byte[] img;
 
-    public Product() {}
+    public ProductRedis() {}
 
     public void setId(long id) {
         this.id = id;

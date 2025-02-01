@@ -1,8 +1,7 @@
 package com.mosweet.Mosweet.Mosweet.controllers;
 
-import com.mosweet.Mosweet.Mosweet.entity.Product;
-import com.mosweet.Mosweet.Mosweet.entity.ProductRedis;
-import com.mosweet.Mosweet.Mosweet.repository.JpaProductRepository;
+import com.mosweet.Mosweet.Mosweet.entity.PostgreSQL.Product;
+import com.mosweet.Mosweet.Mosweet.repository.PostgreSQL.ProductRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.Optional;
 @RestController
 public class ProductController {
     @Autowired
-    JpaProductRepository productRepo;
+    ProductRepositoryJpa productRepo;
 
     @PostMapping("/addProduct")
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
@@ -24,7 +23,7 @@ public class ProductController {
     public ResponseEntity<Product> getProduct(@RequestParam Long id) {
         Optional<Product> product = productRepo.findById(id);
         if (product.isPresent()) {
-            return new ResponseEntity<>(product.get(), HttpStatusCode.valueOf(201));
+            return new ResponseEntity<>(product.get(), HttpStatusCode.valueOf(200));
         } else {
             return new ResponseEntity<>(HttpStatusCode.valueOf(400));
         }

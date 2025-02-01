@@ -1,7 +1,6 @@
 html {
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
     font-style: normal;
 }
 
@@ -39,6 +38,10 @@ header nav ul li a {
     font-size: 1.2em;
     text-decoration: none;
     color: #000;
+}
+
+header nav ul li a img {
+    width: 30px;
 }
 
 header nav ul li:nth-child(6) a{
@@ -312,4 +315,170 @@ header nav ul li:nth-child(6) a{
     width: 600px;
     height: 1px;
     background-color: gray;
+}
+
+/* Страница с категориями  */
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 10%;
+}
+
+.categories div {
+    display: flex;
+    flex: 0 0 calc(33.33% - 10px);
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.categories div img {
+    width: 60%;
+    align-self: center;
+}
+
+.categories div a {
+    font-size: 1.4em;
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.products .product {
+    display: flex;
+    flex: 0 0 calc(25% - 10px);
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.products .product a {
+    text-align: left;
+}
+
+.products .product img {
+    width: 70%;
+}
+
+.products .product .title {
+    width: 60%;
+    font-size: 1.3em;
+    text-align: left;
+}
+
+.products .product .article {
+    font-size: 0.9em;
+    color: #616161;
+    text-align: left;
+}
+
+.products .product div {
+    display: flex;
+    flex-direction: row;
+}
+
+.products .product span {
+    align-self: center;
+}
+
+.products .product button {
+    width: 40%;
+    height: 40px;
+    margin-left: 5%;
+    background-color: #E38CB9;
+    color: white;
+    border: 0;
+}
+
+/* Страница с продуктом */
+
+.product-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-detail .product-image {
+    max-width: 400px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.product-details {
+    max-width: 400px;
+}
+
+.product-detail .price {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.product-detail .description {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-detail .details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.product-detail .details li {
+    margin-bottom: 5px;
+    color: #5D5B5B;
+}
+
+.product-detail .quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-detail .quantity span {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.product-detail .quantity-buttons button {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 2px;
+    font-size: 14px;
+}
+
+.product-detail .quantity-buttons button:hover {
+    border-color: #4db8ff;
+}
+
+.product-detail .add-to-cart {
+    background-color: #f48fb1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.product-detail .add-to-cart:hover {
+    background-color: #ec407a;
 }
