@@ -1,6 +1,8 @@
-FROM 24-ea-21-windowsservercore-1809
+FROM openjdk:24-ea-21-slim-bullseye
+
 WORKDIR /app
-COPY /target/Mosweet-0.0.1-SNAPSHOT.war /app/Mosweet.war
-LABEL authors="user"
-ENTRYPOINT ["java", "-jar", "/Mosweet.war"]
-ENTRYPOINT ["top", "-b"]
+COPY target/Mosweet-0.0.1-SNAPSHOT.jar Mosweet.jar
+
+LABEL authors="nata155630"
+
+ENTRYPOINT ["java", "-jar", "Mosweet.jar"]
