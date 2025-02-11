@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${category}"></title>
+    <link rel="stylesheet" href="\css\styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<header th:insert="blocks/base :: header"></header>
+    <div th:each="product: ${products}" class="products">
+        <div class="product">
+            <a th:href="'/products/' + ${product.article_number}"><img th:src="${product.image_path}"></a>
+            <p th:text="${product.title}" class="title"></p>
+            <p th:text="${product.article_number}" class="article" id="formattedNumber"></p>
+            <div>
+                <span th:text="${product.price} + ' ₽'"></span>
+                <button th:data="${product.article_number}">Добавить</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function formatNumber(num) {
+            return num.toString().padStart(9, '0');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const number = /*[[${number}]]*/ 0;
+            const formattedNumber = formatNumber(number);
+            document.getElementById("formattedNumber").innerText = "Артикул: " + formattedNumber;
+        });
+    </script>
+</body>
+</html>
