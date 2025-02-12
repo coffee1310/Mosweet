@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureMockMvc
 class CategoryServiceTest {
     @Autowired
-    private MockMvc mvc;
+    MockMvc mvc;
 
     @Test
     void getCategoryBySlug() {
