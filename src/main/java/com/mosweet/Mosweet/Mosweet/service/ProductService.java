@@ -16,7 +16,9 @@ public class ProductService {
         return productRepo.getProductByCategory_Slug(slug);
     }
 
-    public Product getProductByArticle_number(int ArticleNumber) {
-        return productRepo.getProductByArticleNumber(ArticleNumber);
-    }
+    public Product getProductByArticle_number(int ArticleNumber) {return productRepo.getProductByArticleNumber(ArticleNumber);}
+
+    public Product getProductById(Long id) {return productRepo.getProductById(id);}
+
+    public Product save(Product product) {return productRepo.save(product);};
 }

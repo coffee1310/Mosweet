@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductRepositoryJpa extends JpaRepository<Product, Long> {
     List<Product> getProductByCategory_Slug(String slug);
     Product getProductByArticleNumber(int ArticleNumber);
+    Product getProductById(Long id);
 }

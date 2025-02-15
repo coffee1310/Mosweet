@@ -38,6 +38,6 @@ public class CategoryRedis {
         this.id = category.getId();
         this.category = category.getCategory();
         this.slug = category.getSlug();
-        this.image_path = category.getImage_path();
+        this.image_path = category.getImagePath();
     }
 }

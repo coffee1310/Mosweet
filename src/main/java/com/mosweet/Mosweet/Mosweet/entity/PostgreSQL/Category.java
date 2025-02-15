@@ -22,18 +22,10 @@ public class Category {
     private String slug;
 
     @Column(name = "image_path", columnDefinition = "TEXT")
-    private String image_path;
+    private String imagePath;
 
     @OneToMany(mappedBy = "category")
     private Set<Product> products;
 
     public Category() {}
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
