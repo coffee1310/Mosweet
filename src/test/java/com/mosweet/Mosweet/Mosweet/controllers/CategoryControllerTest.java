@@ -31,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @EnableTransactionManagement
 @Transactional
+@SuppressWarnings("removal")
 class CategoryControllerTest {
     @Autowired
     MockMvc mvc;
@@ -50,7 +51,7 @@ class CategoryControllerTest {
         category = new Category();
         category.setCategory("Category");
         category.setSlug("CategorySlug");
-        category.setImage_path("path");
+        category.setImagePath("path");
 
         String categoryJson = objectMapper.writeValueAsString(category);
         mvc.perform(MockMvcRequestBuilders.post("/addCategory")
@@ -64,16 +65,16 @@ class CategoryControllerTest {
     @Test
     public void getCategory() throws Exception {
         category = new Category();
-        category.setId(1L);
+        category.setId(2L);
         category.setCategory("Category");
         category.setSlug("CategorySlug");
-        category.setImage_path("path");
-        when(categoryService.getCategoryById(1L)).thenReturn(category);
-        mvc.perform(MockMvcRequestBuilders.get("/getCategory/{id}", 1L))
+        category.setImagePath("path");
+        when(categoryService.getCategoryById(2L)).thenReturn(category);
+        mvc.perform(MockMvcRequestBuilders.get("/getCategory/{id}", 2L))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.slug").value("CategorySlug"))
-                .andExpect(jsonPath("$.image_path").value("path"));
-        verify(categoryService, times(1)).getCategoryById(1L);
+                .andExpect(jsonPath("$.imagePath").value("path"));
+        verify(categoryService, times(1)).getCategoryById(2L);
     }
 
     @AfterEach
