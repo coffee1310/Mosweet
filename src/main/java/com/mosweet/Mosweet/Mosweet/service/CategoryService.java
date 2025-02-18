@@ -50,6 +50,4 @@ public class CategoryService {
     public int getCountRedis() {
         return Math.toIntExact(categoryRepoCrud.count());
     }
-
-
 }
