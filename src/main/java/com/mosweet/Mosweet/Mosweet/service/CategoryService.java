@@ -17,6 +17,7 @@ public class CategoryService {
     @Autowired
     CategoryRepositoryCrud categoryRepoCrud;
 
+    // PostgreSQL
     public Category getCategoryBySlug(String slug) {
         return categoryRepo.getCategoryBySlug(slug);
     }
@@ -25,6 +26,14 @@ public class CategoryService {
         return categoryRepo.findAll();
     }
 
+    public Category save(Category category) {return categoryRepo.save(category);}
+
+    public Category getCategoryById(Long id) {return categoryRepo.getCategoryById(id);}
+
+    public Category deleteCategoryById(Long id) {return categoryRepo.deleteCategoryById(id);}
+
+    public void deleteCategoryBySlug(String slug) {categoryRepo.deleteCategoryBySlug(slug);}
+    // Redis
     public CategoryRedis saveRedis(CategoryRedis category) {
         return this.categoryRepoCrud.save(category);
     }
@@ -41,6 +50,4 @@ public class CategoryService {
     public int getCountRedis() {
         return Math.toIntExact(categoryRepoCrud.count());
     }
-
-
 }

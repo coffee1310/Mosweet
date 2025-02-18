@@ -13,12 +13,12 @@
 	<header th:insert="blocks/base :: header"></header>
     <div th:each="product: ${products}" class="products">
         <div class="product">
-            <a th:href="'/products/' + ${product.article_number}"><img th:src="${product.image_path}"></a>
+            <a th:href="'/products/' + ${product.articleNumber}"><img th:src="${product.imagePath}"></a>
             <p th:text="${product.title}" class="title"></p>
-            <p th:text="${product.article_number}" class="article" id="formattedNumber"></p>
+            <p th:text="${product.articleNumber}" class="article" id="formattedNumber"></p>
             <div>
                 <span th:text="${product.price} + ' ₽'"></span>
-                <button th:data="${product.article_number}">Добавить</button>
+                <button th:data="${product.articleNumber}">Добавить</button>
             </div>
         </div>
     </div>
