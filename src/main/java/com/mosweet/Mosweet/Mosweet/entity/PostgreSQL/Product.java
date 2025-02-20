@@ -38,8 +38,7 @@ public class Product {
     private String compound;
 
     @Column(name = "image_path")
-    private String imagePath; // Изменено на camelCase
+    private String imagePath;
 
-    // Конструктор без параметров
     public Product() {}
 }

@@ -20,18 +20,22 @@ public class MainController {
 	@Autowired
 	ProductService productService;
 
+	@Autowired
+	CategoryRepositoryCrud categoryRepository;
+
     @GetMapping("/")
 	public String mainPage(Model model) {
 		model.addAttribute("title", "Mosweet");
 		return "index";
 	}
 
+
 	@GetMapping("/category")
 	public String categoryPage(Model model) {
 		Iterable<Category> categories = categoryService.findAll();
 		Iterable<CategoryRedis> categoriesRedis = categoryService.findAllRedis();
 
-		if (!categories.iterator().hasNext()) {
+		if (categories.iterator().hasNext()) {
 			for (Category category : categories) {
 				CategoryRedis categoryRedis = new CategoryRedis();
 				categoryRedis.fromCategoryToCategoryRedis(category);

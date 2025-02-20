@@ -13,15 +13,19 @@ import jakarta.transaction.Transactional;
 import org.hamcrest.Matchers;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import reactor.core.publisher.Mono;
+import redis.embedded.RedisServer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,6 +57,8 @@ class MainControllerTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    private static RedisServer redisServer;
 
     @Test
     void mainPageTest() throws Exception {
@@ -148,5 +154,16 @@ class MainControllerTest {
     @Test
     void prodcutsPage() {
 
+    }
+
+    @BeforeAll
+    static void startRedis() throws Exception {
+        redisServer = new RedisServer(6379);
+        redisServer.start();
+    }
+
+    @AfterAll
+    static void stopRedis() {
+        redisServer.stop();
     }
 }

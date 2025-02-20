@@ -6,11 +6,12 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Data
 @RedisHash("categories")
-public class CategoryRedis {
+public class CategoryRedis implements Serializable {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,22 +23,14 @@ public class CategoryRedis {
     private String slug;
 
     @Column(name = "image_path", columnDefinition = "TEXT")
-    private String image_path;
+    private String imagePath;
 
     public CategoryRedis() {}
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 
     public void fromCategoryToCategoryRedis(Category category) {
         this.id = category.getId();
         this.category = category.getCategory();
         this.slug = category.getSlug();
-        this.image_path = category.getImagePath();
+        this.imagePath = category.getImagePath();
     }
 }

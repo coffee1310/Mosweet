@@ -5,6 +5,7 @@ import com.mosweet.Mosweet.Mosweet.entity.Redis.CategoryRedis;
 import com.mosweet.Mosweet.Mosweet.repository.PostgreSQL.CategoryRepositoryJpa;
 import com.mosweet.Mosweet.Mosweet.repository.Redis.CategoryRepositoryCrud;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.List;
 public class CategoryService {
     @Autowired
     CategoryRepositoryJpa categoryRepo;
+
     @Autowired
     CategoryRepositoryCrud categoryRepoCrud;
 
@@ -33,6 +35,7 @@ public class CategoryService {
     public Category deleteCategoryById(Long id) {return categoryRepo.deleteCategoryById(id);}
 
     public void deleteCategoryBySlug(String slug) {categoryRepo.deleteCategoryBySlug(slug);}
+
     // Redis
     public CategoryRedis saveRedis(CategoryRedis category) {
         return this.categoryRepoCrud.save(category);
@@ -42,9 +45,9 @@ public class CategoryService {
         return categoryRepoCrud.findById(id).orElse(null);
     }
 
-    @Cacheable(value = "categories")
+    @CacheEvict(value = "categories", allEntries = true)
     public Iterable<CategoryRedis> findAllRedis() {
-        return categoryRepoCrud.findAll();
+        return this.categoryRepoCrud.findAll();
     }
 
     public int getCountRedis() {
